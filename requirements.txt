@@ -1,0 +1,15 @@
+altgraph==0.17.2
+asgiref==3.5.2
+Django==4.0.6
+django-filter==22.1
+djangorestframework==3.13.1
+future==0.18.2
+pefile==2022.5.30
+Pillow==9.1.1
+pyinstaller==5.1
+pyinstaller-hooks-contrib==2022.7
+pytz==2022.2.1
+pywin32-ctypes==0.2.0
+reportlab==3.6.10
+sqlparse==0.4.2
+tzdata==2022.1
