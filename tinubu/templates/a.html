@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <h1>home</h1>
+    <h1>welcom "{{request.user}}"</h1>
+    <a href="{% url 'admin_dashboard' %}">admin dashboard</a><br>
+    <a href="{% url 'group_dashboard' %}">group dashboard</a><br>
+    <a href="{% url 'our_team' %}">our team</a><br>
+    <a href="{% url 'create_user' %}">Register</a><br>
+    <a href="{% url 'create_support_group' %}">register support group</a><br>
+    <a href="{% url 'login' %}">login</a><br>
+    <a href="{% url 'logout' %}">logout</a><br>
+    
+    
+</body>
+</html>

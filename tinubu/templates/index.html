@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+    <section class="header">
+        <nav id="n">
+            <h1>D.U.R.S.F</h1>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'create_user' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header-content">
+            <h1>DR. DIKKO UMAR RADDA SUPPORT FORUM</h1>
+            <div class="line"></div>
+            <h3>Join The Campaign</h3>
+            <div><a href="{% url 'create_user' %}" class="ctn">Register</a></div>
+        </div>
+    </section>
+   
+    <div class="container mt-2"> 
+        <h3 class="text-center ">About Us</h3>
+        <div class="row">
+            <div class="col col-sm-12">
+                <p class="about-text">Dr. Dikko Umar Radda Support Group Forum was established to provide effective and efficient coordination of alla voluntary support Groups:
+                    from within the civic space and digital media that are involved in grassroots mobilization, and amplifying activities of Gwagware.
+                    The forum also server as an interactive platform for interest groups, and like mind with members from all nooks and cronies of katsina State and diaspora.
+                    with the declaration of Dr. Dikko umar radda to vie for the office of the Governoship of katsina race, the Dikko Umar Radda Supprot group Forum, with the 
+                    head office katsina state and Dutsinma Local Government has kicked off operations towards mobilizing more like minded voluntary support Group That are supporting his candidacy,
+                    with more groups joining the movement on daily basis. The dikko Radda Support Group forum has strategized developed, and is providing comprehensive real time online
+                    and offline activities of the members groups boosting state awareness and promoting gwagware's Governorship Campaing for the 2023 election.
+                    the Dikko Umar Radda Support Group Forum has seen an increase in state support and engagement as a result of approach.</p>
+            </div>
+        </div>
+        <img src="{% static 'img/dikkobanner.jpg' %}" class="img-fluid mt-4" alt="Responsive image">
+        <h3 class="text-center mt-4">Groups</h3>
+        <div class="row">
+            <div class="card-deck">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <img src="{% static 'img/famers.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Farmers</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <img src="{% static 'img/students.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Students</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <img src="{% static 'img/ngo.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">N.G.O</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <img src="{% static 'img/business.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Business</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-center">Our Team</h3>
+        <div class="row">
+
+            {% for t in teams %}
+            <div class="col col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="card">
+                    <img src="{{t.picture.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Name: {{t.name}}</h5>
+                      <h6 class="card-text">Rank: {{t.rank}}</h6>
+                      <p>{{t.phone}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    
+
+    <h3 class="text-center mb-4">Our Services</h3>
+    <div class="services">
+        <div class="mask"></div>
+        <div class="service mt-4">
+            <h3 class="text-center">DIGITAL MEDIA SERVICES</h3>
+            <P class="text-center">This is what we post on the Campaing website, whatsapp and telegram groups, blogs, and other social 
+                media platforms such as facebook, instagram, tik tok, youtube e.t.c. Peoples's daily interactions and communication have changed 
+                as a result of rising use of social media and internet. the use of marketing principles to engaged voters and stimulate collective
+                participation of political process has become crucial real of politics due to competition the use of the internet and social media
+                for political campaigning and involvement has unshared a new paradigm that provide new avenues for political participation and engagement.</P>
+        </div>
+        <div class="service mt-4">
+            <h3 class="text-center  mt-4">SUPPORT GROUP SERVICES</h3>
+            <p class="text-center">This is what Gwagware does, as evidenced by his state appearance and previous initiatives. our Support groups, foot soldiers,
+                consist of volunteer, interest groups from within the civic space, with formal or informal set-up, online and physical presence,
+                irrespective of geograpical location that seeks to influence state perception, political values and strategic campaign of Dr. dikko Umar Radda
+                towards the 2023 election.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="text-center mt-4">Gallery</h1>
+        <div class="row">
+            <div class="col col-lg-3 col-sm-5">
+                <img src="{% static 'img/dikko4.jpg' %}" alt="..." class="img-thumbnail">
+            </div>
+            <div class="col col-lg-3 col-sm-5">
+                <img src="{% static 'img/dikko2.jpg' %}" alt="..." class="img-thumbnail">
+            </div>
+            <div class="col col-lg-3 col-sm-5">
+                <img src="{% static 'img/dikko3.jpg' %}" alt="..." class="img-thumbnail">
+            </div>
+            <div class="col col-lg-3 col-sm-">
+                <img src="{% static 'img/dikko1.jpg' %}" alt="..." class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="text-center mt-4">Contact Us</h3>
+     <div class="row d-flex justify-content-center ">
+        <div class="col col-lg-6" >
+            <form class="border-primary">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Message</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

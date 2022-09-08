@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" style="background-color: #e3f2fd;" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="#">Our Team</a>
+    <a href="{% url 'logout' %}">logout</a>
+
+    <div>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  
+  <div class="container">
+      <h1 class="text-center">Dashboard</h1>
+      <div class="alert alert-primary" role="alert">
+          <div class="avatar col-sm-4">
+              <img src="dikkobanner.jpg" alt="..." class="img-thumbnail">
+          </div>
+          <div class="col col-lg-6" >
+            <div class="alert alert-primary" role="alert">
+              <h6>{{group.profile.user.username}}</h6>
+              <span><a class='btn btn-primary btn-sm' href="{% url 'update_support_group' group.id %}">update</a></span>
+              <span><a class='btn btn-primary btn-sm'href="{% url 'home' %}">home</a></span>
+              <span><a class='btn btn-primary btn-sm'href="{% url 'logout'%}">logout</a></span>
+              <hr>
+              <h6>Name: {{group.full_name}}</h6>
+              <h6>Phone: {{group.phone}}</h6>
+              <h6>Address: {{group.home_address}}</h6>
+            </div>
+          </div>
+      </div>
+
+      <h5 class="text-center mt-4">Users</h5>
+    <div class="row d-flex justify-content-center ">
+      <div class="col col-lg-12 col-sm-12" >
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for g in support_groups %}
+              <tr>
+                <td>{{g.full_name}}</td>
+                <td>{{g.home_address}}</td>
+                <td>{{g.phone}}</td>
+      
+                <td>
+                  <span><a class='badge badge-primary'href="{% url 'support_group_detail' g.id%}">view</a></span>
+                  <span><a class='badge badge-warning'href="{% url 'update_support_group' g.id%}">update</a></span>
+                  <span><a class='badge badge-danger'href="{% url 'delete_support_group' g.id%}">delete</a></span>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+  
+
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support group detals</title>
+</head>
+<body>
+    <img src="{{support_group.logo.url}}" alt="" width="80px">
+    <h5>{{support_group.profile.user.username}}</h5>
+    <hr>
+    <h2>Name: {{support_group.support_group_name}}</h2>
+    <p>Local govt: {{support_group.local_gov.name}}</p>
+    <h5>group Leader: {{support_group.user.username}}</h5>
+    <a href="{% url 'admin_dashboard' %}">back</a>
+</body>
+</html>

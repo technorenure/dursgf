@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" style="background-color: #e3f2fd;" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="#">Our Team</a>
+    <a href="{% url 'logout' %}">logout</a>
+
+    <div>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container">
+      <h3 class="text-center mt-4">Dashboard</h3>
+    <div class="row d-flex justify-content-center ">
+      <div class="col col-lg-6" >
+          <div class="alert alert-primary" role="alert">
+              <h1>Dashboard</h1>
+              <h2>{{group.profile.user.username}}</h2>
+              <span><a class='btn btn-primary' href="{% url 'update_support_group' group.id %}">update</a></span>
+              <span><a class='btn btn-primary'href="{% url 'home'%}">home</a></span>
+              <span><a class='btn btn-primary'href="{% url 'logout'%}">logout</a></span>
+              <hr>
+              <h2>Name: {{group.full_name}}</h2>
+              <h2>Phone: {{group.phone}}</h2>
+              <h2>Address: {{group.home_address}}</h2>
+          </div>
+      </div>
+  </div>
+  
+
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
